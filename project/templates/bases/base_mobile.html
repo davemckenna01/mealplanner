@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<title>Meal Planner {% block title %}{% endblock %}</title>
+
+
+<link rel="stylesheet" href="/static_files/lib/jqtouch/jqtouch.css" type="text/css">
+
+<link rel="stylesheet" href="/static_files/lib/jqtouch/themes/apple/theme.css" type="text/css">
+
+<link rel="stylesheet" href="/static_files/jqtouch/app.css" type="text/css">
+
+<script type="text/javascript" src="/static_files/lib/jquery/jquery-1.5.min.js"></script>
+
+<script type="text/javascript" src="/static_files/lib/jqtouch/jqtouch.js"></script>
+
+<script type="text/javascript"
+    src="http://maps.google.com/maps/api/js?sensor=false">
+</script>
+
+<script type="text/javascript" src="/static_files/jqtouch/app.js"></script>
+
+
+
+</head>
+<body class="{% block bodyclass %}{% endblock %}">
+
+    {% block content %}
+    {% endblock %}
+
+</body>
+</html>

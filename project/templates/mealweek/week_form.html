@@ -1,0 +1,17 @@
+{% extends "bases/base_sections/base_schedule.html" %}
+
+
+{% block content %}
+
+
+<h2>Create a Week</h2>
+
+{{errors}}
+
+<form action="" method="post">
+{{form.as_p}}
+
+<input type="submit" value="Create"/>
+</form>
+
+{% endblock %}

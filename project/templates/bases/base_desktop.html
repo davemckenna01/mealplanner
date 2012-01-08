@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<title>Meal Planner {% block title %}{% endblock %}</title>
+
+<script type="text/javascript" src="/static_files/lib/jquery/jquery-1.5.min.js"></script>
+<script type="text/javascript" src="/static_files/lib/jselectmulti/jquery.jselectmulti.js"></script>
+
+<link rel="stylesheet" type="text/css" href="/static_files/stylesheets/style.css"/>
+
+</head>
+<body class="{% block bodyclass %}{% endblock %}">
+    <div id="header">
+        <h1 id="branding">Meal Planner | Mobile = {{mobile}}</h1>
+    </div>
+    <div id="content">
+    {% block content %}
+    {% endblock %}
+    </div>
+
+    {% include "includes/sidebar.html" %}
+    
+</body>
+</html>

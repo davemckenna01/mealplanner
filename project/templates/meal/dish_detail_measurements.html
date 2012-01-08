@@ -1,0 +1,39 @@
+{% extends "bases/base_sections/base_dishes.html" %}
+
+{% block content %}
+
+<h2>{{dish.name}}</h2>
+
+<form action="" method="post">
+<ul>
+{% for object in dishingredient_list %}
+    <li>
+        {{object.ingredient|title}}
+        <input type="text"
+               name="di_{{object.id}}"
+               value="{{object.measurement}}"
+               maxlength="100"
+        />
+    </li>
+{% endfor %}
+
+{% for object in dishcustomingredient_list %}
+    <li>
+        {{object.custom_ingredient|title}}
+        <input type="text"
+               name="dci_{{object.id}}"
+               value="{{object.measurement}}"
+               maxlength="100"
+        />
+    </li>
+{% endfor %}
+
+
+</ul>
+
+
+    <input type="submit" value="Submit" />
+
+</form>
+
+{% endblock %}

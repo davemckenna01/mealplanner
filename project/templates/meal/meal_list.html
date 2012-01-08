@@ -1,0 +1,28 @@
+{% extends "bases/base_sections/base_meals.html" %}
+
+{% block content %}
+
+<h2>Meals</h2>
+(<a href="{% url meal_meal_create %}">Create a Meal</a>)
+
+<ul>
+{% for object in object_list %}
+    <li>
+        <a href="{{ object.get_absolute_url }}">{{object.name|title}}</a>
+        (<a href="{% url meal_meal_update object.slug %}">edit</a>,
+        <a href="{% url meal_meal_delete object.slug %}">delete</a>)
+    </li>
+{% endfor %}
+</ul>
+
+<p>
+{% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">Previous page</a>
+{% endif %}
+{{ page }} of {{ pages }}
+{% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Next page</a>
+{% endif %}
+</p>
+
+{% endblock %}

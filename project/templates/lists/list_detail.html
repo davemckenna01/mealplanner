@@ -1,0 +1,31 @@
+{% extends "bases/base_sections/base_grocery_lists.html" %}
+
+{% block content %}
+
+<h3>Grocery list for
+
+{% if object_type == "meal" or object_type == "dish" %}
+ {{object_type|title}}:
+{% endif %}
+
+<a href="{{obj.get_absolute_url}}">{{obj.name}}</a></h3>
+
+{% for key, value in all_ingredients.items %}
+<input id="{{key}}" name="{{key}}" type="checkbox">
+<label for="{{key}}">{{value.name|title}}
+</label>
+<br />
+{% endfor %}
+
+
+<br />
+
+{% if object_type == "week" or object_type == "day" %}
+Meals this {{object_type}}:<br />
+{% for meal in meals %}
+<a href="{{meal.get_absolute_url}}">{{meal.name}}</a>,
+{% endfor %}
+{% endif %}
+
+
+{% endblock %}

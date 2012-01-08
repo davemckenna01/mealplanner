@@ -1,0 +1,15 @@
+{% extends "bases/base_sections/base_meals.html" %}
+
+{% block content %}
+
+<h2>Delete {{object.name}}</h2>
+
+<p>Are you sure you want to delete {{object.name}}</p>
+
+<form action="" method="post">
+{{form.as_p}}
+
+<input type="submit" value="Delete"/>
+</form>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "bases/base_sections/base_schedule.html" %}
+
+{% block content %}
+
+<h2>Week: {{object.name}}</h2>
+(<a href="{% url mealweek_week_delete object.slug %}">delete</a>)
+<br />
+View <a href="{% url mealweek_list_detail 'week' object.slug %}">grocery list</a> for this week.
+
+<ul>
+{% for day in object.days.all %}
+<li>
+    <a href="{% url mealweek_day_detail day.slug %}">{{day.name|title}}</a>
+</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

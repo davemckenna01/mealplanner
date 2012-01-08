@@ -1,0 +1,20 @@
+{% extends "bases/base_sections/base_dishes.html" %}
+
+{% block content %}
+
+<h2>Meals</h2>
+(<a href="{% url meal_dish_create %}">Create a Dish</a>)
+
+<ul>
+{% for object in object_list %}
+    <li>
+        <a href="{{ object.get_absolute_url }}">{{object.name|title}}</a>
+        (<a href="{% url meal_dish_update object.slug %}">edit</a>,
+        <a href="{% url meal_dish_delete object.slug %}">delete</a>)
+    </li>
+{% endfor %}
+</ul>
+
+
+
+{% endblock %}

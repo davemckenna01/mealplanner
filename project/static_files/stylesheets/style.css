@@ -1,0 +1,14 @@
+#header{
+background-color:#dedede;
+}
+
+#content {
+    width:60%;
+    float:left;
+}
+
+#sidebar{
+    float:right;
+    border-left:1px dashed #bbb;
+    width:35%;
+}

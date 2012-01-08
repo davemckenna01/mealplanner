@@ -1,0 +1,218 @@
+{% extends "bases/base_sections/base_home.html" %}
+
+{% block content %}
+
+{% if not mobile %}
+
+<ul>
+    <li id="main_nav_meals">
+    <a href="{% url meal_meal_list %}">Meals</a>
+    </li>
+    <li id="main_nav_dishes">
+    <a href="{% url meal_dish_list %}">Dishes</a>
+    </li>
+    <li id="main_nav_custom_ingredients">
+    <a href="{% url meal_custom_ingredient_list %}">Custom Ingredients</a>
+    </li>
+    <li id="main_nav_weeks">
+    <a href="{% url mealweek_week_list %}">Schedule</a>
+    </li>
+    <li id="main_nav_lists">
+    <a href="{% url mealweek_list_list_top_level%}">Grocery Lists</a>
+    </li>
+</ul>
+
+{% endif %}
+
+{% if mobile %}
+
+<div class="current" id="home">
+    <div class="toolbar">
+        <h1>Meal Planner Home</h1>
+        <a href="#login" class="button slideup">Login</a>
+    </div>
+    <h2>Food</h2>
+    <ul class="rounded list_1">
+        <li class="arrow">
+            <a href="#meals">Meals</a>
+        </li>
+        <li class="arrow">
+            <a href="#dishes">Dishes</a>
+        </li>
+    </ul>
+    <h2>Schedule</h2>
+    <ul class="rounded list_2">
+        <li class="arrow">
+            <a href="#weeks">Weeks</a>
+        </li>
+    </ul>
+    <h2>Lists</h2>
+    <ul class="rounded list_3">
+        <li class="arrow">
+            <a href="#lists">Lists</a>
+        </li>
+    </ul>
+    <h2>Other</h2>
+    <ul class="rounded list_3">
+        <li class="arrow">
+            <a href="#find">Find a Grocery Store</a>
+        </li>
+    </ul>
+    <ul class="rounded list_4">
+        <li class="arrow">
+            <a href="#dish_create">Create a Dish</a>
+        </li>
+    </ul>
+    <div class="info">
+        <p>
+            Powered by jQTouch
+        </p>
+    </div>
+</div>
+
+<div id="meals">
+    <div class="toolbar">
+        <h1>Meals</h1>
+        <a class="back">Back</a>
+    </div>
+    <ul class="rounded list_1">
+    </ul>
+    <div class="info">
+        <p>
+            Powered by jQTouch
+        </p>
+    </div>
+</div>
+
+<div id="dishes">
+    <div class="toolbar">
+        <h1>Dishes</h1>
+        <a class="back">Back</a>
+    </div>
+    <ul class="rounded list_1">
+    </ul>
+    <div class="info">
+        <p>
+            Powered by jQTouch
+        </p>
+    </div>
+</div>
+
+
+<div id="weeks">
+    <div class="toolbar">
+        <h1>Weeks</h1>
+        <a class="back">Back</a>
+    </div>
+    <ul class="rounded list_1">
+    </ul>
+    <div class="info">
+        <p>
+            Powered by jQTouch
+        </p>
+    </div>
+</div>
+
+
+
+<div id="lists">
+    <div class="toolbar">
+        <h1>Lists</h1>
+        <a class="back">Back</a>
+    </div>
+    <ul class="rounded list_1">
+    </ul>
+    <div class="info">
+        <p>
+            Powered by jQTouch
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<form action="/api/dishes/" method="post" id="dish_create">
+    <div class="toolbar">
+        <h1>Create a Dish</h1>
+    </div>
+    <ul class="rounded">
+        <li>
+            <input name="name" value="" type="text" placeholder="Name of dish" />
+        </li>
+    </ul>
+    <ul class="rounded">
+        <li>
+
+            <select multiple="multiple" name="ingredients" id="id_ingredients">
+                {% for ingredient in ingredients %}
+                <option value="{{ingredient.id}}">{{ingredient.shrt_desc}}</option>
+                {% endfor %}
+            </select>
+        </li>
+    </ul>
+    <a class="whiteButton submit">Submit</a>
+    <a class="grayButton goback">Cancel</a>
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="find">
+<!--    <div class="toolbar">
+        <h1>Find a Grocery Store</h1>
+        <a class="back">Back</a>
+    </div>-->
+<!--    <div id="find_map">
+        <p>
+            I shall display a map here.
+        </p>
+    </div>-->
+
+</div>
+
+
+
+
+
+
+<form action="/login/" method="post" id="login">
+    <div class="toolbar">
+        <h1>Login</h1>
+    </div>
+    <ul class="rounded">
+        <li class="arrow">
+            <input name="username" value="" type="text" placeholder="Username"/>
+        </li>
+    </ul>
+    <ul class="rounded">
+        <li class="arrow">
+            <input name="password" value="" type="password" placeholder="Password"/>
+        </li>
+    </ul>
+    <a class="whiteButton login">Login</a>
+    <a class="grayButton goback">Cancel</a>
+</form>
+
+
+{% endif %}
+
+
+
+{% endblock %}

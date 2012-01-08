@@ -1,0 +1,40 @@
+{% extends "bases/base_sections/base_dishes.html" %}
+
+{% load markup %}
+
+{% block content %}
+<h2>Dish: {{object.name|title}}</h2>
+(<a href="{% url meal_dish_update object.slug %}">edit</a>,
+<a href="{% url meal_dish_delete object.slug %}">delete</a>)
+<br />
+View <a href="{% url mealweek_list_detail 'dish' object.slug %}">grocery list</a> for this dish.
+
+
+<ul>
+
+{% for ingredient in object.ingredients.all %}
+<li>
+    <a href="{{ingredient.get_absolute_url}}">{{ingredient.shrt_desc|title}}</a>
+    {%if ingredient.dishingredient_set.get.measurement%}
+    --{{ingredient.dishingredient_set.get.measurement}}
+    {%else%}
+    {%endif%}
+</li>
+{% endfor %}
+
+{% for ingredient in object.custom_ingredients.all %}
+<li>
+    <a href="{{ingredient.get_absolute_url}}">{{ingredient.name|title}}</a>
+    {%if ingredient.dishcustomingredient_set.get.measurement%}
+    --{{ingredient.dishcustomingredient_set.get.measurement}}
+    {%else%}
+    {%endif%}
+</li>
+{% endfor %}
+</ul>
+
+<h3>Notes</h3>
+<p>
+    {{object.notes|markdown:"safe"}}
+</p>
+{% endblock %}

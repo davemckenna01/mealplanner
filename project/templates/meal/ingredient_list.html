@@ -1,0 +1,23 @@
+{% extends "bases/base_sections/base_ingredients.html" %}
+
+{% block content %}
+
+<h2>Ingredients</h2>
+
+<ul>
+{% for object in object_list %}
+    <li><a href="{{ object.get_absolute_url }}">{{object.shrt_desc|title}}</a></li>
+{% endfor %}
+</ul>
+
+<p>
+{% if page_obj.has_previous %}
+    <a href="?page={{ page_obj.previous_page_number }}">Previous page</a>
+{% endif %}
+{{ page }} of {{ pages }}
+{% if page_obj.has_next %}
+    <a href="?page={{ page_obj.next_page_number }}">Next page</a>
+{% endif %}
+</p>
+
+{% endblock %}

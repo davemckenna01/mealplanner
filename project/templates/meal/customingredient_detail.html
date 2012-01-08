@@ -1,0 +1,11 @@
+{% extends "bases/base_sections/base_custom_ingredients.html" %}
+
+{% block content %}
+
+<h2>Custom Ingredient: {{object.name|title}}</h2>
+(<a href="{% url meal_custom_ingredient_update object.id %}">edit</a>,
+<a href="{% url meal_custom_ingredient_delete object.id %}">delete</a>)
+
+
+
+{% endblock %}

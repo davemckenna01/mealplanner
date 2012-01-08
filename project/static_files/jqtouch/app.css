@@ -1,0 +1,7 @@
+form#login a.login, form#login a.goback {
+    margin: 0 10px 10px 10px;
+}
+
+form#login a.login {
+    color:rgba(0,0,0,0.9);
+}

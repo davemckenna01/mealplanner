@@ -1,0 +1,16 @@
+{% extends "bases/base_sections/base_grocery_lists.html" %}
+
+{% block content %}
+
+<h3>Grocery Lists</h3>
+
+<ul>
+
+<li><a href="{% url mealweek_list_list 'week' %}">By week</a></li>
+<li><a href="{% url mealweek_list_list 'day' %}">By day</a></li>
+<li><a href="{% url mealweek_list_list 'meal' %}">By meal</a></li>
+<li><a href="{% url mealweek_list_list 'dish' %}">By dish</a></li>
+
+</ul>
+
+{% endblock %}

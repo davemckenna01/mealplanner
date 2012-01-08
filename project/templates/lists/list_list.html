@@ -1,0 +1,14 @@
+{% extends "bases/base_sections/base_grocery_lists.html" %}
+
+
+{% block content %}
+
+<h3>Grocery Lists by {{object_type|title}}</h3>
+
+<ul>
+{% for object in object_list %}
+<li><a href="{% url mealweek_list_detail object_type object.slug %}">{{object.name}}</a></li>
+{% endfor %}
+</ul>
+
+{% endblock %}

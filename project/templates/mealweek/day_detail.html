@@ -1,0 +1,34 @@
+{% extends "bases/base_sections/base_schedule.html" %}
+
+{% block content %}
+
+<h2>{{object.name|title}}</h2>
+
+<ul>
+{% for entry in object.entry_set.all %}
+<li>
+    <a href="{% url meal_meal_detail entry.meal.slug %}">{{entry.meal|title}}</a>
+    - {{entry.meal_type|title}}
+    (<a href="{% url mealweek_day_detail_delete_entry object.slug entry.id %}">remove</a>)
+</li>
+{% endfor %}
+</ul>
+
+<h3>Add a meal:</h3>
+
+<form action="" method="post">
+    {{form.meal.label}}
+    {{form.meal}}
+    {{form.meal_type.label}}
+    {{form.meal_type}}
+
+<input type="submit"/>
+</form>
+
+
+<br />
+<br />
+(View <a href="{% url mealweek_list_detail 'day' object.slug %}">grocery list</a> for this day.)
+
+
+{% endblock %}

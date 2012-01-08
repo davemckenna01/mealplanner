@@ -1,0 +1,19 @@
+{% extends "bases/base_sections/base_meals.html" %}
+
+{% block content %}
+
+<h2>Meal: {{object.name|title}}</h2>
+(<a href="{% url meal_meal_update object.slug %}">edit</a>,
+<a href="{% url meal_meal_delete object.slug %}">delete</a>)
+<br />
+View <a href="{% url mealweek_list_detail 'meal' object.slug %}">grocery list</a> for this meal.
+
+<ul>
+{% for ingredient in object.dishes.all %}
+<li>
+    <a href="{{ingredient.get_absolute_url}}">{{ingredient.name|title}}</a>
+</li>
+{% endfor %}
+</ul>
+
+{% endblock %}

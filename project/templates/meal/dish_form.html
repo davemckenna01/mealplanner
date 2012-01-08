@@ -1,0 +1,29 @@
+{% extends "bases/base_sections/base_dishes.html" %}
+
+{% block content %}
+
+<h2>Create a Dish</h2>
+
+
+
+<form action="" method="post">
+{{form.as_p}}
+
+<input type="submit" value="{%ifequal operation 'create'%}Create{%else%}Update{%endifequal%}"/>
+</form>
+
+<script>
+$(function(){
+    var select_multiple_box = $("select[multiple='multiple'][name='ingredients']");
+    $(select_multiple_box).jSelectMulti({
+        'add_btn_text': 'Add it biaaatch',
+        'searchable': false
+    });
+});
+</script>
+
+
+
+
+
+{% endblock %}

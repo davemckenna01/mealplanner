@@ -1,0 +1,39 @@
+    <div id="sidebar">
+        <h2>Navigation</h2>
+        <ul id="main_nav">
+            <li id="main_nav_meals">
+            <a href="{% url meal_meal_list %}">Meals</a>
+            </li>
+            <li id="main_nav_dishes">
+            <a href="{% url meal_dish_list %}">Dishes</a>
+            </li>
+            <li id="main_nav_custom_ingredients">
+            <a href="{% url meal_custom_ingredient_list %}">Custom Ingredients</a>
+            </li>
+            <li id="main_nav_weeks">
+            <a href="{% url mealweek_week_list %}">Schedule</a>
+            </li>
+            <li id="main_nav_lists">
+            <a href="{% url mealweek_list_list_top_level%}">Grocery Lists</a>
+            </li>
+        </ul>
+
+        <h2>What is this?</h2>
+        {% block whatis %}
+        {% endblock %}
+
+
+        { load coltrane_tags }
+
+        <h2>Latest dishes added</h2>
+        <ul>
+        { get_latest_content coltrane.entry 5 as latest_entries }
+        { for entry in latest_entries }
+            <li>
+            <a href="{{ entry.get_absolute_url }}">{{ entry.title }}</a>,
+            posted {{ entry.pub_date|timesince }} ago.
+            </li>
+        { endfor }
+        </ul>
+
+    </div>
